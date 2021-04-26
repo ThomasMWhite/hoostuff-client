@@ -8,6 +8,7 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 import { ThreeSixtySharp } from "@material-ui/icons"
+import Logo from '../images/logo'
 
 
 const styles = (theme) =>({
@@ -41,7 +42,8 @@ class Navbar extends Component{
                     <div style={{marginTop:'20px', marginBottom:'20px'}}>
                         <Row>
                             <Col size={3}>
-                                <Text>Hoostuff</Text>
+                                
+                                <Logo/>
                             </Col>
                             <Col style={{paddingRight:'40px'}}>
                                 <Button className={classes.button} onClick={this.handleOpen}>
