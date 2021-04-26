@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: transparent;
+  height: 100%;
+  margin:0;
 }
 
 .App-logo {
@@ -35,4 +42,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.center-page {
+  margin: 0 auto !important;
+  max-width: 1080px;
+  width: 100%;
+}
+.center2-page {
+  margin: 0 auto !important;
+  max-width: 1580px;
+  width: 100%;
+}
+
+
+.behind-navbar {
+  margin-top: -80px;
+}
+.generate-button { 
+  border-radius: 0;
+  transform: skewX(-9deg);
+  border: 4px solid black;
+}
+.wrap-grid {
+  flex: 0 0 90px;
+  margin: 5px;
+}
+.wrap-container {
+  display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin:0 auto;
 }
