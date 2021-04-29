@@ -1,9 +1,9 @@
 import { Component } from "react"
 import AppBar from '@material-ui/core/Appbar'
-import { Dialog, DialogContent, DialogContentText, DialogTitle, withStyles } from "@material-ui/core"
+import {Dialog, DialogContent, DialogContentText, DialogTitle, withStyles } from "@material-ui/core"
 import {Row, Col, Grid} from './Flexbox'
 import Text from '../components/Text'
-
+import {Link} from 'react-router-dom';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
@@ -42,15 +42,21 @@ class Navbar extends Component{
                     <div style={{marginTop:'20px', marginBottom:'20px'}}>
                         <Row>
                             <Col size={3}>
+                                <Link to='/'>
+                                    <Logo/>
+                                </Link>
                                 
-                                <Logo/>
                             </Col>
                             <Col style={{paddingRight:'40px'}}>
-                                <Button className={classes.button} onClick={this.handleOpen}>
-                                    <Text fontWeight={400} fontSize={18}>Sign in</Text>
+                                <Link to='/login'>
+
+                                
+                                <Button component={Link} to={"/login"} className={classes.button} onClick={this.handleOpen}>
+                                    <Text fontWeight={400} fontSize={16}>Sign in</Text>
                                 </Button>
+                                </Link>
                                 <Button variant="outlined" className={classes.button} onClick={this.handleOpen}>
-                                    <Text fontWeight={400} fontSize={18}>Sign up</Text>
+                                    <Text fontWeight={400} fontSize={16}>Sign up</Text>
                                 </Button>
                                 
                             </Col>

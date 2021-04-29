@@ -1,7 +1,7 @@
 export default {
     palette: {
       primary: {
-        main:'#065fc0',
+        main:'#304af2',
       },
       secondary: {
         main:'#fff',
@@ -20,6 +20,16 @@ export default {
         borderRadius: '0px',
         transform: 'skewX(-9deg)',
         border: '4px solid black'
+      },
+      wideButton: {
+        marginTop: 20,
+        position: 'relative',
+        width: '100%',
+        padding: '15px 0 15px 0',
+      },
+      TextField:{
+        marginTop:'5px',
+        marginBottom:'5px'
       }
     }
   

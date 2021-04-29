@@ -17,7 +17,8 @@ const styles=(theme)=>({
     card:{
         margin:'10px',
         width:'300px',
-        height:'330px'
+        height:'330px',
+        boxShadow:'0px 2px 15px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)'
     },
     roundButton:{
         borderRadius:'30px',

@@ -6,6 +6,7 @@ import axios from "axios";
 import {Row, Col} from '../layout/Flexbox'
 import Text from '../components/Text'
 import Listing from '../components/Listing'
+import AddListing from '../components/AddListing'
 
 
 const styles=(theme)=>({
@@ -73,6 +74,9 @@ class home extends Component{
                 <div className={classes.backgroundBar}>
                     <div style={{textAlign:'center', color:'white', paddingTop:'5px'}}>
                         Here you could add the sorting stuff
+                    </div>
+                    <div className="center-page">
+                        <AddListing/>
                     </div>
                 </div>
                 <div className="center-page" style={{paddingTop:'20px'}}>
