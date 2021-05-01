@@ -1,3 +1,4 @@
+import { CardActionArea } from '@material-ui/core';
 import {SET_LISTINGS, SET_AUTHENTICATED, LOADING, SET_ERRORS, CLEAR_ERRORS, SET_UNAUTHENTICATED} from './types';
 
 const initialState = {
@@ -5,7 +6,8 @@ const initialState = {
     username: "",
     password: "",
     loading: false,
-    errors: {}
+    error: "",
+    param: ""
 };
 
 export default function(state = initialState, action){
@@ -25,19 +27,24 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 loading: false,
-                errors: action.payload.errors
+                error: action.payload.error,
+                param: action.payload.param
             }
         }
         case CLEAR_ERRORS:{
             return {
                 ...state,
                 loading: false,
-                errors:{}
+                error: "",
+                param: ""
             }
         }
         case SET_AUTHENTICATED:
             state.username = action.payload.username;
             state.password = action.payload.password;
+            state.error = "";
+            state.param = "";
+            state.listings = [];
             return {
                 ...state
             }

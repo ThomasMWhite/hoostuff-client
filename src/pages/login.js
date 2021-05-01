@@ -46,6 +46,9 @@ class login extends Component{
     }
 
     submitForm = (event)=>{
+        console.log(this.state.username)
+        console.log(this.state.password)
+
         event.preventDefault();
         const userData = {
             username: this.state.username,
@@ -63,6 +66,7 @@ class login extends Component{
     render(){
         const {classes} = this.props;
         const {errors} = this.state;
+        const {error} = this.props;
 
         return (
             <div>
@@ -86,10 +90,10 @@ class login extends Component{
                                 <form noValidate onSubmit={this.submitForm}>
 
                                     <TextField variant="outlined" name="username" type="username" label="Username" className={classes.TextField}
-                                    value={this.state.username} helperText={errors.username} error={errors.username ? true: false} onChange={this.handleChange} fullWidth/>
+                                    value={this.state.username} helperText={error} error={error!==''} onChange={this.handleChange} fullWidth/>
 
                                     <TextField id="outlined-password-input" variant="outlined" name="password" type="password" label="Password" className={classes.TextField}
-                                    value={this.state.password} helperText={errors.password} error={errors.password ? true: false} onChange={this.handleChange} fullWidth/>
+                                    value={this.state.password} helperText={error} error={errors!==''} onChange={this.handleChange} fullWidth/>
 
                                     <Button color="primary" variant="contained" type="submit" className={classes.wideButton} onClick={this.submitForm}>
                                         Login
@@ -107,11 +111,12 @@ class login extends Component{
 }
 
 login.propTypes = {
-    loginUser: PropTypes.func.isRequired
+    loginUser: PropTypes.func.isRequired,
+    error: PropTypes.string.isRequired
 }
 
 const mapStateToProps = (state)=>({
-
+    error: state.error
 })
 
 const mapActionsToProps = {
