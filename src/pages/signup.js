@@ -11,7 +11,7 @@ import AddListing from '../components/AddListing'
 import {TextField, Card, CardContent, CardHeader, Select, MenuItem, InputLabel} from '@material-ui/core'
 
 import PropTypes from 'prop-types';
-import {signupUser} from '../redux/dataActions'
+import {signupUser, clearErrors} from '../redux/dataActions'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { isThisMonth } from "date-fns";
 import { ThreeSixtySharp } from "@material-ui/icons";
@@ -79,6 +79,11 @@ class signup extends Component{
 
     changePanel = (num) =>{
         this.setState({panel:num})
+    }
+
+    componentDidMount = ()=>{
+        this.props.clearErrors()
+        this.setState({error:'',errorParam:''})
     }
 
     submitForm = ()=>{
@@ -300,7 +305,8 @@ class signup extends Component{
 signup.propTypes = {
     signupUser: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired,
-    param: PropTypes.string.isRequired
+    param: PropTypes.string.isRequired,
+    clearErrors: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state)=>({
@@ -309,7 +315,8 @@ const mapStateToProps = (state)=>({
 })
 
 const mapActionsToProps = {
-    signupUser
+    signupUser,
+    clearErrors
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(signup))

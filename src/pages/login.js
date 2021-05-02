@@ -10,7 +10,7 @@ import Listing from '../components/Listing'
 import AddListing from '../components/AddListing'
 import {TextField, Card, CardContent, CardHeader} from '@material-ui/core'
 import PropTypes from 'prop-types';
-import {loginUser} from '../redux/dataActions'
+import {loginUser, clearErrors} from '../redux/dataActions'
 
 
 const styles=(theme)=>({
@@ -43,6 +43,11 @@ class login extends Component{
             password:'',
             errors: {},
         }
+    }
+
+    componentDidMount = ()=>{
+        this.props.clearErrors()
+        this.setState({})
     }
 
     submitForm = (event)=>{
@@ -93,7 +98,7 @@ class login extends Component{
                                     value={this.state.username} helperText={error} error={error!==''} onChange={this.handleChange} fullWidth/>
 
                                     <TextField id="outlined-password-input" variant="outlined" name="password" type="password" label="Password" className={classes.TextField}
-                                    value={this.state.password} helperText={error} error={errors!==''} onChange={this.handleChange} fullWidth/>
+                                    value={this.state.password} helperText={error} error={error!==''} onChange={this.handleChange} fullWidth/>
 
                                     <Button color="primary" variant="contained" type="submit" className={classes.wideButton} onClick={this.submitForm}>
                                         Login
@@ -112,7 +117,8 @@ class login extends Component{
 
 login.propTypes = {
     loginUser: PropTypes.func.isRequired,
-    error: PropTypes.string.isRequired
+    error: PropTypes.string.isRequired,
+    clearErrors: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state)=>({
@@ -120,7 +126,8 @@ const mapStateToProps = (state)=>({
 })
 
 const mapActionsToProps = {
-    loginUser
+    loginUser,
+    clearErrors
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(login))

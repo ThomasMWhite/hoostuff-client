@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import home from './pages/home'
 import login from './pages/login'
 import signup from './pages/signup'
+import profile from './pages/profile'
 
 //components
 import Navbar from './layout/Navbar'
@@ -38,6 +39,7 @@ function App() {
             <Route exact path='/' component={home}/>
             <Route exact path='/login' component={login}/>
             <Route exact path='/signup' component={signup}/>
+            <Route exact path='/profile' component={profile}/>
           </Switch>
         </Router>
         </PersistGate>

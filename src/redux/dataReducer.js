@@ -1,5 +1,5 @@
 import { CardActionArea } from '@material-ui/core';
-import {SET_LISTINGS, SET_AUTHENTICATED, LOADING, SET_ERRORS, CLEAR_ERRORS, SET_UNAUTHENTICATED} from './types';
+import {SET_LISTINGS, SET_AUTHENTICATED, LOADING, SET_ERRORS, CLEAR_ERRORS, SET_UNAUTHENTICATED, ADD_LISTING, SET_FAVORITES} from './types';
 
 const initialState = {
     listings: [],
@@ -37,6 +37,33 @@ export default function(state = initialState, action){
                 loading: false,
                 error: "",
                 param: ""
+            }
+        }
+        case ADD_LISTING:{
+            window.location.reload(false)
+            return {
+                ...state
+            }
+        }
+        case SET_FAVORITES:{
+            console.log(action.payload.favorited)
+            console.log(action.payload.all)
+            for (var key in action.payload.all){
+                // console.log(key)
+                let isFavorited = false
+                for(var j=0; j<action.payload.favorited.length; j++)
+                {
+                    if(action.payload.favorited[j]===action.payload.all[key].listing_id)
+                    {
+                        isFavorited = true
+                    }
+                }
+                action.payload.all[key].isFavorited = isFavorited
+                // console.log(state.listings[key].listing_id +' '+ isFavorited)
+            }
+            state.listings = action.payload.all
+            return {
+                ...state
             }
         }
         case SET_AUTHENTICATED:
