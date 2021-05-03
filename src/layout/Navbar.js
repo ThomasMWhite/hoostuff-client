@@ -1,6 +1,5 @@
 import { Component } from "react"
-import AppBar from '@material-ui/core/Appbar'
-import {Dialog, DialogContent, DialogContentText, DialogTitle, withStyles } from "@material-ui/core"
+import {Dialog, DialogContent, DialogContentText, DialogTitle, withStyles, AppBar } from "@material-ui/core"
 import {Row, Col, Grid} from './Flexbox'
 import Text from '../components/Text'
 import {Link} from 'react-router-dom';

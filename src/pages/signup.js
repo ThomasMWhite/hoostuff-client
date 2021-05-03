@@ -31,7 +31,7 @@ const styles=(theme)=>({
     loginCard:{
         marginTop:'70px',
         width:'500px',
-        height:'500px',
+        // height:'500px',
         borderRadius:'25px',
         boxShadow:'0px 2px 15px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)'
 
@@ -58,6 +58,9 @@ class signup extends Component{
         this.state = {
             panel: 0,
             selectedDate:'',
+            phone_area_code: '',
+            phone_number: '',
+            phone_type: '',
             username: '',
             password:'',
             confirmPassword:'',
@@ -108,6 +111,7 @@ class signup extends Component{
             city: this.state.city,
             state: this.state.state,
             zip: parseInt(this.state.zip),
+            phone_list: [{area_code: parseInt(this.state.phone_area_code), phone_number: parseInt(this.state.phone_number), type: this.state.phone_type}],
         }
 
         console.log('submitting')
@@ -267,6 +271,28 @@ class signup extends Component{
                                                     <TextField variant="outlined" name="zip" type="zip" label="Zip" className={classes.TextField}
                                                     value={this.state.zip} helperText={errorType==="zip"?errorMes: null} error={errorType==="zip"} onChange={this.handleChangeNumbersOnly} fullWidth/>
                                                 </Col>
+                                            </Row>
+
+                                            <Row>
+                                            <Col size={0.4}>
+                                                <TextField variant="outlined" name="phone_area_code" label="Area" className={classes.TextField}
+                                                    value={this.state.phone_area_code} helperText={errorType==="phone_list"?errorMes: null} error={errorType==="phone_list"} onChange={this.handleChangeNumbersOnly} fullWidth/>
+                                            </Col>
+                                            <Col size={1}>
+                                                <TextField variant="outlined" name="phone_number" label="Phone Number" className={classes.TextField}
+                                                    value={this.state.phone_number} helperText={errorType==="phone_list"?errorMes: null} error={errorType==="phone_list"} onChange={this.handleChangeNumbersOnly} fullWidth/>
+                                            </Col>
+                                            <Col size={0.3}>
+                                                <Select variant="outlined" name="phone_type" label="Type" className={classes.TextField}
+                                                    value={this.state.phone_type} helperText={errorType==="phone_list"?errorMes: null} error={errorType==="phone_list"} onChange={this.handleChange} fullWidth>
+                                                        <MenuItem value='' disabled>
+                                                            Type
+                                                        </MenuItem>
+                                                        <MenuItem value='Home'>Home</MenuItem>
+                                                        <MenuItem value='Work'>Work</MenuItem>
+                                                        <MenuItem value='Mobile'>Mobile</MenuItem>
+                                                    </Select>
+                                            </Col>
                                             </Row>
 
                                             <Row>

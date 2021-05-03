@@ -7,6 +7,7 @@ import {Row, Col} from '../layout/Flexbox'
 import Text from '../components/Text'
 import Listing from '../components/Listing'
 import AddListing from '../components/AddListing'
+import PhoneIcon from '@material-ui/icons/Phone';
 
 import {getMyListings} from '../redux/dataActions'
 import {connect} from 'react-redux';
@@ -70,9 +71,8 @@ class profile extends Component{
     render(){
         const {classes, listings, username} = this.props;
 
-        const {first_name, last_name, street_number, street, city, state, zip, email, dob_year, dob_month, dob_day} = this.state.info
+        const {first_name, last_name, street_number, street, city, state, zip, email, dob_year, dob_month, dob_day, phone_list} = this.state.info
 
-        
         let listingArray = []
         if(listings!==null && listings!==undefined && listings!=={}){
             Object.keys(listings).forEach(function(key) {
@@ -131,6 +131,14 @@ class profile extends Component{
                                 
                                 {city}, {state} {zip}
                             </Text>
+                        </Col>
+                        <Col size={1}>
+                            <PhoneIcon color="primary"/>
+                            {phone_list && <Text>
+
+                                Phone: {phone_list[0].area_code}-{phone_list[0].phone_number} <br/>
+                                Type: {phone_list[0].type}
+                            </Text>}
                         </Col>
                     </Row>
                     <div style={{backgroundColor:'#304af2', marginTop:'20px', width:'100%', height:'6px'}}/>
