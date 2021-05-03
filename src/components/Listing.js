@@ -154,7 +154,7 @@ class home extends Component{
                             
                         </Col>
                         <Col size={.5}>
-                            {this.props.viewingUser !== "" && (
+                            {(this.props.viewingUser !== "" && this.props.viewingUser!==undefined && this.props.viewingUser!==null) && (
                                 <FavoriteButton id={listing_id} key={isFavorited} isFavorited={isFavorited} listing_id={listing_id} color={butColor} />
                             )}
                             

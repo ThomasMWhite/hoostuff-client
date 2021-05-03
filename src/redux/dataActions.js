@@ -72,7 +72,7 @@ export const getAllListings = (type, userData) => (dispatch) =>{
     axios.get(route)
         .then(res1=>{
             
-            if(userData.username===''){
+            if(userData.username==='' || userData.username ===undefined || userData.username===null){
                 dispatch({type: SET_FAVORITES, payload: {all: res1.data, favorited: []}})
                 return;
             }

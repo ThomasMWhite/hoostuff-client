@@ -53,7 +53,7 @@ class Navbar extends Component{
                                 </Link>
                                 
                             </Col>
-                            {username==="" ?(
+                            {(username==="" || username===undefined || username===null) ?(
                                 <Col style={{paddingRight:'40px'}}>
                                 <Link to='/login'>
                                 <Button component={Link} to={"/login"} className={classes.button} onClick={this.handleOpen}>

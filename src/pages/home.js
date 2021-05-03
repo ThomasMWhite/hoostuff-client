@@ -74,6 +74,9 @@ class home extends Component{
     }
 
     componentDidMount(){
+        console.log(this.props.username)
+        console.log(this.props.password)
+        
         this.props.getAllListings('all', {username: this.props.username, password: this.props.password})
         let item =0
         let all = 0
